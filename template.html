@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .header, .footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #3a4a6b;
+            margin: 0;
+        }
+        .header p, .footer p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .invoice-header, .bill-to, .comments, .totals {
+            margin-bottom: 20px;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+        }
+        .invoice-header div {
+            width: 45%;
+        }
+        .invoice-header table, .totals table {
+            width: 100%;
+        }
+        .bill-to, .comments {
+            border: 1px solid #3a4a6b;
+            padding: 10px;
+            background-color: #f4f7ff;
+        }
+        .table-title {
+            font-weight: bold;
+            color: #3a4a6b;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #3a4a6b;
+            color: white;
+        }
+        .totals td {
+            text-align: right;
+        }
+        .totals .amount {
+            font-weight: bold;
+        }
+        .footer {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="invoice-container">
+    <div class="header">
+        <h1>Company Name</h1>
+        <p>[Street Address]</p>
+        <p>[City, ST ZIP]</p>
+        <p>Phone: [000-000-0000] | Fax: [000-000-0000]</p>
+        <p>Website: somedomain.com</p>
+    </div>
+
+    <div class="invoice-header">
+        <div>
+            <p><strong>BILL TO:</strong></p>
+            <p>[Name]</p>
+            <p>[Company Name]</p>
+            <p>[Street Address]</p>
+            <p>[City, ST ZIP]</p>
+            <p>[Phone]</p>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>DATE</td>
+                    <td>12/9/2019</td>
+                </tr>
+                <tr>
+                    <td>INVOICE #</td>
+                    <td>123456</td>
+                </tr>
+                <tr>
+                    <td>CUSTOMER ID</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td>DUE DATE</td>
+                    <td>1/8/2020</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="bill-to">
+        <div class="table-title">DESCRIPTION</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Taxed</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Service Fee</td>
+                    <td></td>
+                    <td>230.00</td>
+                </tr>
+                <tr>
+                    <td>Labor: 5 hours at $75/hr</td>
+                    <td></td>
+                    <td>375.00</td>
+                </tr>
+                <tr>
+                    <td>Parts</td>
+                    <td>X</td>
+                    <td>345.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="comments">
+        <p><strong>OTHER COMMENTS:</strong></p>
+        <p>1. Total payment due in 30 days</p>
+        <p>2. Please include the invoice number on your check</p>
+    </div>
+
+    <div class="totals">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>950.00</td>
+            </tr>
+            <tr>
+                <td>Taxable</td>
+                <td>345.00</td>
+            </tr>
+            <tr>
+                <td>Tax Rate</td>
+                <td>6.250%</td>
+            </tr>
+            <tr>
+                <td>Tax Due</td>
+                <td>21.56</td>
+            </tr>
+            <tr>
+                <td>Other</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td class="amount">TOTAL</td>
+                <td class="amount">$971.56</td>
+            </tr>
+        </table>
+        <p>Make all checks payable to [Your Company Name]</p>
+    </div>
+
+    <div class="footer">
+        <p>If you have any questions about this invoice, please contact</p>
+        <p>[Name, Phone #, E-mail]</p>
+        <p><strong>Thank You For Your Business!</strong></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+[
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "NamedTemporaryFile",
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "isExtraImport": true,
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "pdfkit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pdfkit",
+        "description": "pdfkit",
+        "detail": "pdfkit",
+        "documentation": {}
+    },
+    {
+        "label": "Environment",
+        "importPath": "jinja2",
+        "description": "jinja2",
+        "isExtraImport": true,
+        "detail": "jinja2",
+        "documentation": {}
+    },
+    {
+        "label": "FileSystemLoader",
+        "importPath": "jinja2",
+        "description": "jinja2",
+        "isExtraImport": true,
+        "detail": "jinja2",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "pytz",
+        "description": "pytz",
+        "isExtraImport": true,
+        "detail": "pytz",
+        "documentation": {}
+    },
+    {
+        "label": "generate_pdf_invoice",
+        "kind": 2,
+        "importPath": "pdf_generator",
+        "description": "pdf_generator",
+        "peekOfCode": "def generate_pdf_invoice():\n    # Set up Jinja2 environment\n    env = Environment(loader=FileSystemLoader(\".\"))\n    template = env.get_template(\"template.html\")\n    # Generate date for the invoice\n    date = datetime.datetime.now().astimezone(pytz_timezone(\"Etc/GMT+7\")).date()\n    # Render HTML content\n    html_content = template.render().encode(\"utf-8\")\n    # Set up wkhtmltopdf configuration\n    path_to_wkhtmltopdf = \"/usr/bin/wkhtmltopdf\"  # Adjust if needed",
+        "detail": "pdf_generator",
+        "documentation": {}
+    }
+]
