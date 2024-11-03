@@ -51,19 +51,11 @@
         "documentation": {}
     },
     {
-        "label": "timezone",
-        "importPath": "pytz",
-        "description": "pytz",
-        "isExtraImport": true,
-        "detail": "pytz",
-        "documentation": {}
-    },
-    {
         "label": "generate_pdf_invoice",
         "kind": 2,
         "importPath": "pdf_generator",
         "description": "pdf_generator",
-        "peekOfCode": "def generate_pdf_invoice():\n    # Set up Jinja2 environment\n    env = Environment(loader=FileSystemLoader(\".\"))\n    template = env.get_template(\"template.html\")\n    # Generate date for the invoice\n    date = datetime.datetime.now().astimezone(pytz_timezone(\"Etc/GMT+7\")).date()\n    # Render HTML content\n    html_content = template.render().encode(\"utf-8\")\n    # Set up wkhtmltopdf configuration\n    path_to_wkhtmltopdf = \"/usr/bin/wkhtmltopdf\"  # Adjust if needed",
+        "peekOfCode": "def generate_pdf_invoice():\n    #  bulk data for generate invoice\n    data = {\n        \"company\": {\n            \"name\": \"One Islam\",\n            \"street\": \"Vil-Kaliganj, Thana-Ullapara\",\n            \"city\": \"Sirajganj\",\n            \"st\": \"Rajshahi\",\n            \"country\": \"Bangladesh\",\n            \"zip\": \"6760\",",
         "detail": "pdf_generator",
         "documentation": {}
     }

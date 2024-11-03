@@ -79,39 +79,39 @@
 
 <div class="invoice-container">
     <div class="header">
-        <h1>Company Name</h1>
-        <p>[Street Address]</p>
-        <p>[City, ST ZIP]</p>
-        <p>Phone: [000-000-0000] | Fax: [000-000-0000]</p>
-        <p>Website: somedomain.com</p>
+        <h1>{{ data.company.name }}</h1>
+        <p>{{ data.company.street }}</p>
+        <p>{{ data.company.city }}, {{ data.company.st }} {{ data.company.zip }}</p>
+        <p>Phone: {{ data.company.phone }} | Fax: {{ data.company.fax }}</p>
+        <p>Website: {{ data.company.website }}</p>
     </div>
 
     <div class="invoice-header">
         <div>
             <p><strong>BILL TO:</strong></p>
-            <p>[Name]</p>
-            <p>[Company Name]</p>
-            <p>[Street Address]</p>
-            <p>[City, ST ZIP]</p>
-            <p>[Phone]</p>
+            <p>{{ data.bill_to.name }}</p>
+            <p>{{ data.bill_to.company }}</p>
+            <p>{{ data.bill_to.street }}</p>
+            <p>{{ data.bill_to.city }}, {{ data.bill_to.st }} {{ data.bill_to.zip }}</p>
+            <p>{{ data.bill_to.phone }}</p>
         </div>
         <div>
             <table>
                 <tr>
                     <td>DATE</td>
-                    <td>12/9/2019</td>
+                    <td>{{ data.invoice.date }}</td>
                 </tr>
                 <tr>
                     <td>INVOICE #</td>
-                    <td>123456</td>
+                    <td>{{ data.invoice.number }}</td>
                 </tr>
                 <tr>
                     <td>CUSTOMER ID</td>
-                    <td>123</td>
+                    <td>{{ data.invoice.customer_id }}</td>
                 </tr>
                 <tr>
                     <td>DUE DATE</td>
-                    <td>1/8/2020</td>
+                    <td>{{ data.invoice.due_date }}</td>
                 </tr>
             </table>
         </div>
@@ -128,64 +128,57 @@
                 </tr>
             </thead>
             <tbody>
+                {% for item in data.invoice_items %}
                 <tr>
-                    <td>Service Fee</td>
-                    <td></td>
-                    <td>230.00</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.taxed }}</td>
+                    <td>{{ item.amount }}</td>
                 </tr>
-                <tr>
-                    <td>Labor: 5 hours at $75/hr</td>
-                    <td></td>
-                    <td>375.00</td>
-                </tr>
-                <tr>
-                    <td>Parts</td>
-                    <td>X</td>
-                    <td>345.00</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
 
     <div class="comments">
         <p><strong>OTHER COMMENTS:</strong></p>
-        <p>1. Total payment due in 30 days</p>
-        <p>2. Please include the invoice number on your check</p>
+        {% for comment in data.comments %}
+        <p>{{ comment }}</p>
+        {% endfor %}
     </div>
 
     <div class="totals">
         <table>
             <tr>
                 <td>Subtotal</td>
-                <td>950.00</td>
+                <td>{{ data.totals.subtotal }}</td>
             </tr>
             <tr>
                 <td>Taxable</td>
-                <td>345.00</td>
+                <td>{{ data.totals.taxable }}</td>
             </tr>
             <tr>
                 <td>Tax Rate</td>
-                <td>6.250%</td>
+                <td>{{ data.totals.tax_rate }}%</td>
             </tr>
             <tr>
                 <td>Tax Due</td>
-                <td>21.56</td>
+                <td>{{ data.totals.tax_due }}</td>
             </tr>
             <tr>
                 <td>Other</td>
-                <td>-</td>
+                <td>{{ data.totals.other }}</td>
             </tr>
             <tr>
                 <td class="amount">TOTAL</td>
-                <td class="amount">$971.56</td>
+                <td class="amount">${{ data.totals.total }}</td>
             </tr>
         </table>
-        <p>Make all checks payable to [Your Company Name]</p>
+        <p>Make all checks payable to {{ data.payment_info.payable_to }}</p>
     </div>
 
     <div class="footer">
         <p>If you have any questions about this invoice, please contact</p>
-        <p>[Name, Phone #, E-mail]</p>
+        <p>{{ data.contact_info.contact_name }}, {{ data.contact_info.contact_phone }}, {{ data.contact_info.contact_email }}</p>
         <p><strong>Thank You For Your Business!</strong></p>
     </div>
 </div>
